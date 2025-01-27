@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Citas - Clínica</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portal de Citas - Clínica</h1>
+    </header>
+
+    <div class="container" id="login-container">
+        <h2>Iniciar Sesión</h2>
+        <div class="form-group">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" placeholder="Ingresa tu usuario">
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" placeholder="Ingresa tu contraseña">
+        </div>
+        <button id="login-button">Iniciar Sesión</button>
+    </div>
+
+    <div class="container" id="cita-container" style="display: none;">
+        <h2>Registro de Citas</h2>
+        <div class="form-group">
+            <label for="especialidad">Especialidad:</label>
+            <select id="especialidad">
+                <option value="medicina_general">Medicina General</option>
+                <option value="pediatria">Pediatría</option>
+                <option value="dermatologia">Dermatología</option>
+                <option value="odontologia">Odontología</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="doctor">Doctor:</label>
+            <select id="doctor">
+                <!-- Los doctores se llenarán dinámicamente según la especialidad -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha">
+        </div>
+        <div class="form-group">
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre completo">
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" placeholder="Ingresa tu número de teléfono">
+        </div>
+        <button id="guardar-cita">Guardar Cita</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const loginButton = document.getElementById('login-button');
+        const loginContainer = document.getElementById('login-container');
+        const citaContainer = document.getElementById('cita-container');
+        const guardarCitaButton = document.getElementById('guardar-cita');
+        const especialidadSelect = document.getElementById('especialidad');
+        const doctorSelect = document.getElementById('doctor');
+        const fechaInput = document.getElementById('fecha');
+        const horaInput = document.getElementById('hora');
+        const nombreInput = document.getElementById('nombre');
+        const telefonoInput = document.getElementById('telefono');
+
+        const doctoresPorEspecialidad = {
+            medicina_general: ["Dr. Juan Pérez", "Dr. Ana Torres"],
+            pediatria: ["Dra. María Gómez", "Dr. Pablo Herrera"],
+            dermatologia: ["Dr. Carlos López", "Dra. Laura Vargas"],
+            odontologia: ["Dr. Roberto Díaz", "Dra. Sofía Fernández"]
+        };
+
+        especialidadSelect.addEventListener('change', () => {
+            const especialidadSeleccionada = especialidadSelect.value;
+            const doctores = doctoresPorEspecialidad[especialidadSeleccionada] || [];
+
+            doctorSelect.innerHTML = '';
+            doctores.forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = doctor;
+                option.textContent = doctor;
+                doctorSelect.appendChild(option);
+            });
+        });
+
+        loginButton.addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            if (username) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Bienvenido!',
+                    text: `Hola, ${username}! Bienvenido al portal de citas.`
+                });
+                loginContainer.style.display = 'none';
+                citaContainer.style.display = 'block';
+
+                // Inicializar doctores para la especialidad seleccionada por defecto
+                especialidadSelect.dispatchEvent(new Event('change'));
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, ingresa tu usuario.'
+                });
+            }
+        });
+
+        guardarCitaButton.addEventListener('click', () => {
+            const especialidad = especialidadSelect.value;
+            const doctor = doctorSelect.value;
+            const fecha = fechaInput.value;
+            const hora = horaInput.value;
+            const nombre = nombreInput.value;
+            const telefono = telefonoInput.value;
+
+            if (!especialidad || !doctor || !fecha || !hora || !nombre || !telefono) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, completa todos los campos antes de guardar la cita.'
+                });
+                return;
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Cita Guardada',
+                html: `<p>Especialidad: ${especialidad}</p>
+                       <p>Doctor: ${doctor}</p>
+                       <p>Fecha: ${fecha}</p>
+                       <p>Hora: ${hora}</p>
+                       <p>Nombre: ${nombre}</p>
+                       <p>Teléfono: ${telefono}</p>`
+            }).then(() => {
+                // Limpiar los campos
+                especialidadSelect.value = 'medicina_general';
+                especialidadSelect.dispatchEvent(new Event('change'));
+                fechaInput.value = '';
+                horaInput.value = '';
+                nombreInput.value = '';
+                telefonoInput.value = '';
+            });
+        });
+
+        // Inicializar doctores para la especialidad seleccionada por defecto al cargar la página
+        especialidadSelect.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>
