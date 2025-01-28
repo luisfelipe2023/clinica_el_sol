@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="pag.css">
+   <title>Acerca de Nosotros - CLÍNICA EL SOL</title>
+   <style>
+      body {
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f7f9fc;
+      }
+
+      .about-us {
+         margin: 40px auto;
+         max-width: 1200px;
+         text-align: center;
+         padding: 20px;
+         background: #fff;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         border-radius: 12px;
+         overflow: hidden;
+      }
+
+      .about-us__title {
+         font-size: 2.8rem;
+         font-weight: bold;
+         color: #007bff;
+         margin-bottom: 15px;
+         animation: fadeIn 1s ease-in-out;
+      }
+
+      .about-us__subtitle {
+         font-size: 1.4rem;
+         color: #555;
+         margin-bottom: 30px;
+         animation: fadeIn 1.2s ease-in-out;
+      }
+
+      .about-us__content {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 30px;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .about-us__text {
+         flex: 1;
+         text-align: left;
+         font-size: 1rem;
+         color: #333;
+         padding: 10px;
+         animation: fadeInLeft 1.5s ease-in-out;
+      }
+
+      .about-us__text h2 {
+         font-size: 1.8rem;
+         color: #007bff;
+         margin-bottom: 10px;
+      }
+
+      .about-us__text ul {
+         list-style: none;
+         padding: 0;
+      }
+
+      .about-us__text ul li {
+         font-size: 1rem;
+         color: #555;
+         margin: 5px 0;
+         display: flex;
+         align-items: center;
+      }
+
+      .about-us__text ul li::before {
+         content: "✔";
+         color: #007bff;
+         margin-right: 10px;
+      }
+
+      .about-us__image {
+         flex: 1;
+         text-align: center;
+         animation: fadeInRight 1.5s ease-in-out;
+      }
+
+      .about-us__image img {
+         max-width: 100%;
+         border-radius: 12px;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease;
+      }
+
+      .about-us__image img:hover {
+         transform: scale(1.05);
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(-20px);
+         }
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @keyframes fadeInLeft {
+         from {
+            opacity: 0;
+            transform: translateX(-50px);
+         }
+         to {
+            opacity: 1;
+            transform: translateX(0);
+         }
+      }
+
+      @keyframes fadeInRight {
+         from {
+            opacity: 0;
+            transform: translateX(50px);
+         }
+         to {
+            opacity: 1;
+            transform: translateX(0);
+         }
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+         .about-us__content {
+            flex-direction: column;
+         }
+
+         .about-us__text, .about-us__image {
+            flex: unset;
+         }
+      }
+   </style>
+</head>
+<body>
+   <!-- Sidebar bg -->
+   <img src="assets/img/sidebar-bg.jpg" alt="sidebar img" class="bg-image">
+
+   <!--=============== HEADER ===============-->
+   <header class="header">
+      <div class="header__container container">
+         <div class="header__toggle" id="header-toggle">
+            <i class="ri-menu-line"></i>
+         </div>
+         <a href="#" class="header__logo">
+            <img src="assets/img/yt-logo-full.svg" alt="">
+         </a>
+      </div>
+   </header>
+   
+   
+   <!--=============== SIDEBAR ===============-->
+   <div class="sidebar" id="sidebar">
+    <nav class="sidebar__container">
+       <div class="sidebar__logo">
+          <img src="assets/img/yt-logo.svg" alt="" class="sidebar__logo-img">
+          <img src="assets/img/yt-logo-text.svg" alt="" class="sidebar__logo-text">
+       </div>
+
+       <div class="sidebar__content">
+          <div class="sidebar__list">
+             <a href="menu.html" class="sidebar__link active-link">
+                <i class="ri-home-5-line"></i>
+                <span class="sidebar__link-name">Inicio</span>
+                <span class="sidebar__link-floating">Inicio</span>
+             </a>
+             
+             <a href="especialidades.html" class="sidebar__link">
+                <i class="ri-compass-3-line"></i>
+                <span class="sidebar__link-name">Especialidades</span>
+                <span class="sidebar__link-floating">Especialidades</span>
+             </a>
+
+             <a href="#" class="sidebar__link">
+                <i class="ri-video-line"></i>
+                <span class="sidebar__link-name">Agendar Cita</span>
+                <span class="sidebar__link-floating">Agendar Cita</span>
+             </a>
+          </div>
+
+          <h3 class="sidebar__title">
+             <span>MANTENIMIENTO</span>
+          </h3>
+
+          <div class="sidebar__list">
+             <a href="historial.html" class="sidebar__link">
+                <i class="ri-history-line"></i>
+                <span class="sidebar__link-name">Historial</span>
+                <span class="sidebar__link-floating">Historial</span>
+             </a>
+
+             <a href="doctores.html" class="sidebar__link">
+                <i class="ri-time-line"></i>
+                <span class="sidebar__link-name">Doctores</span>
+                <span class="sidebar__link-floating">Doctores</span>
+             </a>
+
+             <a href="acerca-de-nosotros.html" class="sidebar__link">
+                <i class="ri-heart-3-line"></i>
+                <span class="sidebar__link-name">Acerca de Nosotros</span>
+                <span class="sidebar__link-floating">Acerca de Nosotros</span>
+             </a>
+          </div>
+
+          <h3 class="sidebar__title">
+             <span>General</span>
+          </h3>
+
+          <div class="sidebar__list">
+             <a href="index.html" class="sidebar__link">
+                <i class="ri-logout-box-r-line"></i>
+                <span class="sidebar__link-name">Salir</span>
+                <span class="sidebar__link-floating">Salir</span>
+             </a>
+          </div>
+       </div>
+    </nav>
+ </div>
+
+
+   <!--=============== MAIN CONTENT ===============-->
+   <main class="main container" id="main">
+      <section class="about-us">
+         <h1 class="about-us__title">Acerca de Nosotros</h1>
+         <p class="about-us__subtitle">En Clínica El Sol, cuidamos de tu salud y la de tu familia con dedicación y excelencia.</p>
+         <div class="about-us__content">
+            <div class="about-us__text">
+               <h2>Misión</h2>
+               <p>Brindar atención médica de alta calidad, accesible y con un enfoque humano, priorizando el bienestar integral de nuestros pacientes.</p>
+               <h2>Visión</h2>
+               <p>Ser líderes en servicios de salud, reconocidos por nuestra excelencia médica y compromiso con la comunidad.</p>
+               <h2>Valores</h2>
+               <ul>
+                  <li>Empatía</li>
+                  <li>Compromiso</li>
+                  <li>Excelencia</li>
+                  <li>Ética</li>
+                  <li>Innovación</li>
+               </ul>
+            </div>
+            <div class="about-us__image">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJDcUa5XYcMplsdelxqpNuFBCRSsofgpoLOw&s" alt="Nuestro equipo médico">
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="pag.js"></script>
+</body>
+</html>

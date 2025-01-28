@@ -19,59 +19,13 @@
          <div class="header__toggle" id="header-toggle">
             <i class="ri-menu-line"></i>
          </div>
-
          <a href="#" class="header__logo">
             <img src="assets/img/yt-logo-full.svg" alt="">
          </a>
-
          <div class="header__user">
-            <!-- Aquí se mostrará el nombre del usuario -->
             <span id="user-name" class="header__user-name"></span>
          </div>
       </div>
-      <style>
-        .table-container {
-   overflow-x: auto;
-   background: #fff;
-   padding: 20px;
-   border-radius: 8px;
-   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.citas-table {
-   width: 100%;
-   border-collapse: collapse;
-   text-align: left;
-}
-
-.citas-table thead {
-   background-color: #007bff;
-   color: #fff;
-}
-
-.citas-table th, .citas-table td {
-   padding: 12px 15px;
-   border-bottom: 1px solid #ddd;
-}
-
-.citas-table tr:hover {
-   background-color: #f1f1f1;
-}
-
-.citas-table th {
-   text-transform: uppercase;
-   font-size: 14px;
-}
-
-.citas-table td {
-   font-size: 14px;
-   color: #555;
-}
-
-.citas-table tbody tr:nth-child(even) {
-   background-color: #f9f9f9;
-}
-      </style>
    </header>
 
    <!--=============== SIDEBAR ===============-->
@@ -89,48 +43,36 @@
                   <span class="sidebar__link-name">Inicio</span>
                   <span class="sidebar__link-floating">Inicio</span>
                </a>
-               
                <a href="especialidades.html" class="sidebar__link">
                   <i class="ri-compass-3-line"></i>
                   <span class="sidebar__link-name">Especialidades</span>
                   <span class="sidebar__link-floating">Especialidades</span>
                </a>
-
                <a href="agendar-cita.html" class="sidebar__link">
                   <i class="ri-video-line"></i>
                   <span class="sidebar__link-name">Agendar Cita</span>
                   <span class="sidebar__link-floating">Agendar Cita</span>
                </a>
             </div>
-
-            <h3 class="sidebar__title">
-               <span>MANTENIMIENTO</span>
-            </h3>
-
+            <h3 class="sidebar__title"><span>MANTENIMIENTO</span></h3>
             <div class="sidebar__list">
                <a href="historial.html" class="sidebar__link">
                   <i class="ri-history-line"></i>
                   <span class="sidebar__link-name">Historial</span>
                   <span class="sidebar__link-floating">Historial</span>
                </a>
-
                <a href="doctores.html" class="sidebar__link">
                   <i class="ri-time-line"></i>
                   <span class="sidebar__link-name">Doctores</span>
                   <span class="sidebar__link-floating">Doctores</span>
                </a>
-
                <a href="acerca-de-nosotros.html" class="sidebar__link">
                   <i class="ri-heart-3-line"></i>
                   <span class="sidebar__link-name">Acerca de Nosotros</span>
                   <span class="sidebar__link-floating">Acerca de Nosotros</span>
                </a>
             </div>
-
-            <h3 class="sidebar__title">
-               <span>General</span>
-            </h3>
-
+            <h3 class="sidebar__title"><span>General</span></h3>
             <div class="sidebar__list">
                <a href="index.html" class="sidebar__link">
                   <i class="ri-logout-box-r-line"></i>
@@ -142,64 +84,61 @@
       </nav>
    </div>
 
+   <!--=============== MAIN CONTENT ===============-->
    <main class="main container" id="main">
-    <h2 class="title">Historial de Citas</h2>
-    <div class="table-container">
-       <table class="citas-table">
-          <thead>
-             <tr>
-                <th>#</th>
-                <th>Especialidad</th>
-                <th>Doctor</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-             </tr>
-          </thead>
-          <tbody>
-             <tr>
-                <td>1</td>
-                <td>Medicina General</td>
-                <td>Dr. Juan Pérez</td>
-                <td>2025-02-01</td>
-                <td>09:00</td>
-                <td>Juan López</td>
-                <td>987654321</td>
-             </tr>
-             <tr>
-                <td>2</td>
-                <td>Pediatría</td>
-                <td>Dra. María Gómez</td>
-                <td>2025-01-25</td>
-                <td>10:30</td>
-                <td>Ana Pérez</td>
-                <td>912345678</td>
-             </tr>
-             <tr>
-                <td>3</td>
-                <td>Dermatología</td>
-                <td>Dra. Laura Vargas</td>
-                <td>2025-01-18</td>
-                <td>11:00</td>
-                <td>Carlos Ruiz</td>
-                <td>987123456</td>
-             </tr>
-             <tr>
-                <td>4</td>
-                <td>Odontología</td>
-                <td>Dr. Roberto Díaz</td>
-                <td>2025-01-10</td>
-                <td>08:30</td>
-                <td>Lucía Méndez</td>
-                <td>912987654</td>
-             </tr>
-          </tbody>
-       </table>
-    </div>
- </main>
-   
+      <section class="doctors">
+         <h2>Doctores</h2>
+         <div class="filter">
+            <label for="filter-category">Filtrar por Especialidad:</label>
+            <select id="filter-category">
+               <option value="all">Todos</option>
+               <option value="general">Medicina General</option>
+               <option value="pediatria">Pediatría</option>
+               <option value="dermatologia">Dermatología</option>
+               <option value="odontologia">Odontología</option>
+            </select>
+         </div>
+         <div class="doctor-list" id="doctor-list">
+            <!-- Lista de doctores dinámicos -->
+         </div>
+      </section>
+   </main>
+
    <!--=============== MAIN JS ===============-->
    <script src="pag.js"></script>
+   <script>
+    const doctors = [
+   { name: "Dr. Juan Pérez", specialty: "general" },
+   { name: "Dra. María Gómez", specialty: "pediatria" },
+   { name: "Dra. Laura Vargas", specialty: "dermatologia" },
+   { name: "Dr. Roberto Díaz", specialty: "odontologia" },
+   { name: "Dr. Pedro Ramírez", specialty: "general" }
+];
+
+const filterCategory = document.getElementById("filter-category");
+const doctorList = document.getElementById("doctor-list");
+
+function displayDoctors(filter = "all") {
+   doctorList.innerHTML = "";
+   const filteredDoctors = filter === "all" ? doctors : doctors.filter(doc => doc.specialty === filter);
+   filteredDoctors.forEach(doc => {
+      const doctorCard = document.createElement("div");
+      doctorCard.classList.add("doctor-card");
+      doctorCard.innerHTML = `
+         <h3>${doc.name}</h3>
+         <p>Especialidad: ${doc.specialty}</p>
+      `;
+      doctorList.appendChild(doctorCard);
+   });
+}
+
+filterCategory.addEventListener("change", (e) => {
+   displayDoctors(e.target.value);
+});
+
+// Mostrar todos los doctores al cargar la página
+displayDoctors();
+
+   </script>
 </body>
 </html>
