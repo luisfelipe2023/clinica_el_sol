@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="pag.css">
+   <title>CLINICA - EL SOL</title>
+   <style>
+      .specialties {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+         gap: 1.5rem;
+         margin-top: 2rem;
+      }
+      .specialty-card {
+         background-color: #f9f9f9;
+         border: 1px solid #ddd;
+         border-radius: 12px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         padding: 1.5rem;
+         text-align: center;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .specialty-card:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .specialty-icon {
+         font-size: 3rem;
+         color: #4caf50;
+         margin-bottom: 1rem;
+      }
+      .specialty-title {
+         font-size: 1.2rem;
+         font-weight: bold;
+         margin-bottom: 0.5rem;
+      }
+      .specialty-description {
+         font-size: 0.9rem;
+         color: #666;
+      }
+   </style>
+</head>
+<body>
+   <!-- Sidebar bg -->
+   <img src="assets/img/sidebar-bg.jpg" alt="sidebar img" class="bg-image">
+
+   <!--=============== HEADER ===============-->
+   <header class="header">
+      <div class="header__container container">
+         <div class="header__toggle" id="header-toggle">
+            <i class="ri-menu-line"></i>
+         </div>
+
+         <a href="#" class="header__logo">
+            <img src="assets/img/yt-logo-full.svg" alt="">
+         </a>
+
+         <div class="header__user">
+            <span id="user-name" class="header__user-name"></span>
+         </div>
+      </div>
+   </header>
+
+ <!--=============== SIDEBAR ===============-->
+ <div class="sidebar" id="sidebar">
+    <nav class="sidebar__container">
+       <div class="sidebar__logo">
+          <img src="assets/img/yt-logo.svg" alt="" class="sidebar__logo-img">
+          <img src="assets/img/yt-logo-text.svg" alt="" class="sidebar__logo-text">
+       </div>
+
+       <div class="sidebar__content">
+          <div class="sidebar__list">
+             <a href="menu.html" class="sidebar__link active-link">
+                <i class="ri-home-5-line"></i>
+                <span class="sidebar__link-name">Inicio</span>
+                <span class="sidebar__link-floating">Inicio</span>
+             </a>
+             
+             <a href="especialidades.html" class="sidebar__link">
+                <i class="ri-compass-3-line"></i>
+                <span class="sidebar__link-name">Especialidades</span>
+                <span class="sidebar__link-floating">Especialidades</span>
+             </a>
+
+             <a href="agendar-cita.html" class="sidebar__link">
+                <i class="ri-video-line"></i>
+                <span class="sidebar__link-name">Agendar Cita</span>
+                <span class="sidebar__link-floating">Agendar Cita</span>
+             </a>
+          </div>
+
+          <h3 class="sidebar__title">
+             <span>MANTENIMIENTO</span>
+          </h3>
+
+          <div class="sidebar__list">
+             <a href="historial.html" class="sidebar__link">
+                <i class="ri-history-line"></i>
+                <span class="sidebar__link-name">Historial</span>
+                <span class="sidebar__link-floating">Historial</span>
+             </a>
+
+             <a href="#" class="sidebar__link">
+                <i class="ri-time-line"></i>
+                <span class="sidebar__link-name">Doctores</span>
+                <span class="sidebar__link-floating">Doctores</span>
+             </a>
+
+             <a href="#" class="sidebar__link">
+                <i class="ri-heart-3-line"></i>
+                <span class="sidebar__link-name">Acerca de Nosotros</span>
+                <span class="sidebar__link-floating">Acerca de Nosotros</span>
+             </a>
+          </div>
+
+          <h3 class="sidebar__title">
+             <span>General</span>
+          </h3>
+
+          <div class="sidebar__list">
+             <a href="login.html" class="sidebar__link">
+                <i class="ri-logout-box-r-line"></i>
+                <span class="sidebar__link-name">Salir</span>
+                <span class="sidebar__link-floating">Salir</span>
+             </a>
+          </div>
+       </div>
+    </nav>
+ </div>
+
+
+   <!--=============== MAIN ===============-->
+   <main class="main container" id="main">
+      <h1>NUESTRAS ESPECIALIDADES</h1>
+      <div class="specialties">
+         <div class="specialty-card">
+            <i class="ri-heart-pulse-line specialty-icon"></i>
+            <div class="specialty-title">Cardiología</div>
+            <p class="specialty-description">Cuidado integral para tu corazón y sistema circulatorio.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-bar-chart-line specialty-icon"></i>
+            <div class="specialty-title">Endocrinología</div>
+            <p class="specialty-description">Diagnóstico y tratamiento de trastornos hormonales.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-virus-line specialty-icon"></i>
+            <div class="specialty-title">Infectología</div>
+            <p class="specialty-description">Especialistas en el tratamiento de enfermedades infecciosas.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-user-heart-line specialty-icon"></i>
+            <div class="specialty-title">Pediatría</div>
+            <p class="specialty-description">Atención médica especializada para niños y adolescentes.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-stethoscope-line specialty-icon"></i>
+            <div class="specialty-title">Medicina General</div>
+            <p class="specialty-description">Cuidados básicos y prevención para todas las edades.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-medicine-bottle-line specialty-icon"></i>
+            <div class="specialty-title">Oncología</div>
+            <p class="specialty-description">Tratamiento integral del cáncer y cuidado de pacientes oncológicos.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-sun-line specialty-icon"></i>
+            <div class="specialty-title">Dermatología</div>
+            <p class="specialty-description">Cuidados especializados para la salud de tu piel.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-lungs-line specialty-icon"></i>
+            <div class="specialty-title">Neumología</div>
+            <p class="specialty-description">Diagnóstico y tratamiento de enfermedades respiratorias.</p>
+         </div>
+         <div class="specialty-card">
+            <i class="ri-user-2-line specialty-icon"></i>
+            <div class="specialty-title">Geriatría</div>
+            <p class="specialty-description">Atención médica especializada para adultos mayores.</p>
+         </div>
+      </div>
+   </main>
+   
+   <!--=============== MAIN JS ===============-->
+   <script src="pag.js"></script>
+</body>
+</html>

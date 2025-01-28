@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="pag.css">
+   <title>CLINICA - EL SOL</title>
+</head>
+<body>
+   <!-- Sidebar bg -->
+   <img src="assets/img/sidebar-bg.jpg" alt="sidebar img" class="bg-image">
+
+   <!--=============== HEADER ===============-->
+   <header class="header">
+      <div class="header__container container">
+         <div class="header__toggle" id="header-toggle">
+            <i class="ri-menu-line"></i>
+         </div>
+
+         <a href="#" class="header__logo">
+            <img src="assets/img/yt-logo-full.svg" alt="">
+         </a>
+
+         <div class="header__user">
+            <!-- Aquí se mostrará el nombre del usuario -->
+            <span id="user-name" class="header__user-name"></span>
+         </div>
+      </div>
+   </header>
+
+   <!--=============== SIDEBAR ===============-->
+   <div class="sidebar" id="sidebar">
+      <nav class="sidebar__container">
+         <div class="sidebar__logo">
+            <img src="assets/img/yt-logo.svg" alt="" class="sidebar__logo-img">
+            <img src="assets/img/yt-logo-text.svg" alt="" class="sidebar__logo-text">
+         </div>
+
+         <div class="sidebar__content">
+            <div class="sidebar__list">
+               <a href="menu.html" class="sidebar__link active-link">
+                  <i class="ri-home-5-line"></i>
+                  <span class="sidebar__link-name">Inicio</span>
+                  <span class="sidebar__link-floating">Inicio</span>
+               </a>
+               
+               <a href="especialidades.html" class="sidebar__link">
+                  <i class="ri-compass-3-line"></i>
+                  <span class="sidebar__link-name">Especialidades</span>
+                  <span class="sidebar__link-floating">Especialidades</span>
+               </a>
+
+               <a href="#" class="sidebar__link">
+                  <i class="ri-video-line"></i>
+                  <span class="sidebar__link-name">Agendar Cita</span>
+                  <span class="sidebar__link-floating">Agendar Cita</span>
+               </a>
+            </div>
+
+            <h3 class="sidebar__title">
+               <span>MANTENIMIENTO</span>
+            </h3>
+
+            <div class="sidebar__list">
+               <a href="historial.html" class="sidebar__link">
+                  <i class="ri-history-line"></i>
+                  <span class="sidebar__link-name">Historial</span>
+                  <span class="sidebar__link-floating">Historial</span>
+               </a>
+
+               <a href="#" class="sidebar__link">
+                  <i class="ri-time-line"></i>
+                  <span class="sidebar__link-name">Doctores</span>
+                  <span class="sidebar__link-floating">Doctores</span>
+               </a>
+
+               <a href="#" class="sidebar__link">
+                  <i class="ri-heart-3-line"></i>
+                  <span class="sidebar__link-name">Acerca de Nosotros</span>
+                  <span class="sidebar__link-floating">Acerca de Nosotros</span>
+               </a>
+            </div>
+
+            <h3 class="sidebar__title">
+               <span>General</span>
+            </h3>
+
+            <div class="sidebar__list">
+               <a href="login.html" class="sidebar__link">
+                  <i class="ri-logout-box-r-line"></i>
+                  <span class="sidebar__link-name">Salir</span>
+                  <span class="sidebar__link-floating">Salir</span>
+               </a>
+            </div>
+         </div>
+      </nav>
+   </div>
+
+   <main class="main container" id="main">
+    <h2 class="title">Registro de Citas</h2>
+    <div class="form-group">
+       <label for="especialidad" class="form-label">Especialidad:</label>
+       <select id="especialidad" class="form-select">
+          <option value="medicina_general">Medicina General</option>
+          <option value="pediatria">Pediatría</option>
+          <option value="dermatologia">Dermatología</option>
+          <option value="odontologia">Odontología</option>
+       </select>
+    </div>
+    <div class="form-group">
+       <label for="doctor" class="form-label">Doctor:</label>
+       <select id="doctor" class="form-select">
+          <!-- Doctores se llenarán dinámicamente -->
+       </select>
+    </div>
+    <div class="form-group">
+       <label for="fecha" class="form-label">Fecha:</label>
+       <input type="date" id="fecha" class="form-input">
+    </div>
+    <div class="form-group">
+       <label for="hora" class="form-label">Hora:</label>
+       <select id="hora" class="form-select">
+          <!-- Horarios se llenarán dinámicamente -->
+       </select>
+    </div>
+    <div class="form-group">
+       <label for="nombre" class="form-label">Nombre Completo:</label>
+       <input type="text" id="nombre" class="form-input" placeholder="Ingresa tu nombre completo">
+    </div>
+    <div class="form-group">
+       <label for="telefono" class="form-label">Teléfono:</label>
+       <input type="tel" id="telefono" class="form-input" placeholder="Ingresa tu número de teléfono">
+    </div>
+    <button id="guardar-cita" class="btn-submit">Guardar Cita</button>
+ </main>
+
+ <script>
+    const especialidadSelect = document.getElementById('especialidad');
+    const doctorSelect = document.getElementById('doctor');
+    const horaSelect = document.getElementById('hora');
+    const fechaInput = document.getElementById('fecha');
+    const guardarCitaButton = document.getElementById('guardar-cita');
+
+    // Doctores y sus horarios según especialidad
+    const doctoresPorEspecialidad = {
+       medicina_general: {
+          "Dr. Juan Pérez": ["08:00", "09:00", "10:00", "11:00"],
+          "Dr. Ana Torres": ["13:00", "14:00", "15:00", "16:00"]
+       },
+       pediatria: {
+          "Dra. María Gómez": ["09:00", "10:00", "11:00"],
+          "Dr. Pablo Herrera": ["14:00", "15:00", "16:00"]
+       },
+       dermatologia: {
+          "Dr. Carlos López": ["08:30", "09:30", "10:30"],
+          "Dra. Laura Vargas": ["13:30", "14:30", "15:30"]
+       },
+       odontologia: {
+          "Dr. Roberto Díaz": ["08:00", "09:30", "11:00"],
+          "Dra. Sofía Fernández": ["14:00", "15:30", "17:00"]
+       }
+    };
+
+    // Cambiar los doctores al seleccionar especialidad
+    especialidadSelect.addEventListener('change', () => {
+       const especialidadSeleccionada = especialidadSelect.value;
+       const doctores = doctoresPorEspecialidad[especialidadSeleccionada];
+
+       // Llenar opciones de doctores
+       doctorSelect.innerHTML = '';
+       for (const doctor in doctores) {
+          const option = document.createElement('option');
+          option.value = doctor;
+          option.textContent = doctor;
+          doctorSelect.appendChild(option);
+       }
+
+       // Actualizar horarios para el primer doctor
+       doctorSelect.dispatchEvent(new Event('change'));
+    });
+
+    // Cambiar los horarios al seleccionar doctor
+    doctorSelect.addEventListener('change', () => {
+       const especialidadSeleccionada = especialidadSelect.value;
+       const doctorSeleccionado = doctorSelect.value;
+       const horarios = doctoresPorEspecialidad[especialidadSeleccionada][doctorSeleccionado];
+
+       // Llenar opciones de horarios
+       horaSelect.innerHTML = '';
+       horarios.forEach(hora => {
+          const option = document.createElement('option');
+          option.value = hora;
+          option.textContent = hora;
+          horaSelect.appendChild(option);
+       });
+    });
+
+    guardarCitaButton.addEventListener('click', () => {
+       const especialidad = especialidadSelect.value;
+       const doctor = doctorSelect.value;
+       const fecha = fechaInput.value;
+       const hora = horaSelect.value;
+       const nombre = document.getElementById('nombre').value;
+       const telefono = document.getElementById('telefono').value;
+
+       if (!especialidad || !doctor || !fecha || !hora || !nombre || !telefono) {
+          alert('Por favor, completa todos los campos.');
+          return;
+       }
+
+       alert(`Cita Guardada:
+       Especialidad: ${especialidad}
+       Doctor: ${doctor}
+       Fecha: ${fecha}
+       Hora: ${hora}
+       Nombre: ${nombre}
+       Teléfono: ${telefono}`);
+    });
+
+    // Inicializar con la especialidad seleccionada por defecto
+    especialidadSelect.dispatchEvent(new Event('change'));
+ </script>
+</body>
+</html>

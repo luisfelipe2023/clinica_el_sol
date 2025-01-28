@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="pag.css">
+   <title>CLINICA - EL SOL</title>
+</head>
+<body>
+   <!-- Sidebar bg -->
+   <img src="assets/img/sidebar-bg.jpg" alt="sidebar img" class="bg-image">
+
+   <!--=============== HEADER ===============-->
+   <header class="header">
+      <div class="header__container container">
+         <div class="header__toggle" id="header-toggle">
+            <i class="ri-menu-line"></i>
+         </div>
+
+         <a href="#" class="header__logo">
+            <img src="assets/img/yt-logo-full.svg" alt="">
+         </a>
+
+         <div class="header__user">
+            <!-- Aquí se mostrará el nombre del usuario -->
+            <span id="user-name" class="header__user-name"></span>
+         </div>
+      </div>
+   </header>
+
+   <!--=============== SIDEBAR ===============-->
+   <div class="sidebar" id="sidebar">
+      <nav class="sidebar__container">
+         <div class="sidebar__logo">
+            <img src="assets/img/yt-logo.svg" alt="" class="sidebar__logo-img">
+            <img src="assets/img/yt-logo-text.svg" alt="" class="sidebar__logo-text">
+         </div>
+
+         <div class="sidebar__content">
+            <div class="sidebar__list">
+               <a href="menu.html" class="sidebar__link active-link">
+                  <i class="ri-home-5-line"></i>
+                  <span class="sidebar__link-name">Inicio</span>
+                  <span class="sidebar__link-floating">Inicio</span>
+               </a>
+               
+               <a href="especialidades.html" class="sidebar__link">
+                  <i class="ri-compass-3-line"></i>
+                  <span class="sidebar__link-name">Especialidades</span>
+                  <span class="sidebar__link-floating">Especialidades</span>
+               </a>
+
+               <a href="agendar-cita.html" class="sidebar__link">
+                  <i class="ri-video-line"></i>
+                  <span class="sidebar__link-name">Agendar Cita</span>
+                  <span class="sidebar__link-floating">Agendar Cita</span>
+               </a>
+            </div>
+
+            <h3 class="sidebar__title">
+               <span>MANTENIMIENTO</span>
+            </h3>
+
+            <div class="sidebar__list">
+               <a href="historial.html" class="sidebar__link">
+                  <i class="ri-history-line"></i>
+                  <span class="sidebar__link-name">Historial</span>
+                  <span class="sidebar__link-floating">Historial</span>
+               </a>
+
+               <a href="#" class="sidebar__link">
+                  <i class="ri-time-line"></i>
+                  <span class="sidebar__link-name">Doctores</span>
+                  <span class="sidebar__link-floating">Doctores</span>
+               </a>
+
+               <a href="#" class="sidebar__link">
+                  <i class="ri-heart-3-line"></i>
+                  <span class="sidebar__link-name">Acerca de Nosotros</span>
+                  <span class="sidebar__link-floating">Acerca de Nosotros</span>
+               </a>
+            </div>
+
+            <h3 class="sidebar__title">
+               <span>General</span>
+            </h3>
+
+            <div class="sidebar__list">
+               <a href="login.html" class="sidebar__link">
+                  <i class="ri-logout-box-r-line"></i>
+                  <span class="sidebar__link-name">Salir</span>
+                  <span class="sidebar__link-floating">Salir</span>
+               </a>
+            </div>
+         </div>
+      </nav>
+   </div>
+
+   <main class="main container" id="main">
+    <div class="welcome-container">
+       
+ 
+       <!-- Mensaje principal -->
+       <h1 id="welcome-message" class="welcome-title">¡Bienvenido a la Clínica El Sol!</h1>
+       <p class="welcome-subtitle">
+          Dedicados a cuidar de tu salud y bienestar con especialistas de confianza.
+          ¡Tu salud es nuestra prioridad!
+       </p>
+ 
+       <!-- Imagen central -->
+       <div class="welcome-image-center">
+          <img src="https://cms-img.auna.org/unidad_cardiovascular_3841a27a15.png" alt="Clínica moderna y acogedora" />
+       </div>
+ 
+       
+       
+    </div>
+ </main>
+   
+   <!--=============== MAIN JS ===============-->
+   <script src="pag.js"></script>
+</body>
+</html>
